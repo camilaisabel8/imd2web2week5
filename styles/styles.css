@@ -1,0 +1,122 @@
+main {
+    display: grid;
+    grid-template-columns: repeat(5, 80px);
+    grid-template-rows: 80px 80px 25px;
+    gap: 10px;
+}
+
+.grid-blue, .grid-green {
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.grid-blue {
+    width: 80px;
+    height: 80px;
+    background-color: lightblue;
+}
+.grid-green {
+    width: 80px;
+    height: 25px;
+    background-color: lightgreen;
+}
+
+.grid-start {
+    grid-column-start: 2;
+}
+
+
+/***********************************************
+                    TRANSFORM
+***********************************************/
+
+main div:nth-child(2) {
+    transform: translate(25px, 25px);
+}
+
+main div:nth-child(3) {
+    transform: rotate(45deg);
+}
+main div:nth-child(4) {
+    transform: scale(2, 0.5);
+}
+main div:nth-child(5) {
+    transform: skew(20deg, 10deg);
+}
+
+main div:nth-child(7) {
+transition-property:background-color;
+    transition-duration:1s;
+}
+
+main div:nth-child(7):hover {
+    background-color: lightcoral;
+
+}
+
+main div:nth-child(8) {
+   transition-property:transform;
+    transition-duration:1500ms; /* 1500ms is the same as 1.5s */
+}
+
+main div:nth-child(8):hover {
+    transform: rotate(365deg);
+}
+
+main div:nth-child(9) {
+    transition:all 2s;
+}
+main div:nth-child(9):hover {
+    transform: scale(2, 3);
+    transform: rotate(180deg);
+    background-color: lightcoral;
+    border-radius: 50%;
+    transform: translateY(50px);
+
+}
+@keyframes bounce {
+
+    7% {
+        transform: scaleY(0.9);
+        transform-origin:bottom;
+    }
+
+    10% {
+        transform: scaleY(-50px);
+        transform-origin:bottom;
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+
+
+}
+
+main div:nth-child(10) {
+    animation-name: bounce;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+/*********************************************
+                BUTTON ANIMATION
+*********************************************/
+
+.btn {
+    text-align: center;
+    border-radius: 5px;
+    background-color: hsl(9, 79%, 60%);
+    border: 1px solid lightblue;
+    color: hsl(2, 80%, 92%);
+    padding: 2px;
+
+    cursor: pointer;
+
+    transition: all 500ms;
+}
+
+.btn:hover, .btn:focus, .btn:active {
+    background-color: hsl(9, 79%, 80%);
+    border-color: hsl(9, 79%, 20%);
+    transform: scale(1.1);
+}
